@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import {BsArrowDownRight ,BsArrowUpRight} from "react-icons/bs"
-import { Column } from '@ant-design/plots';
+
 import { Table } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMonthlyDate } from '../features/auth/authSlice';
