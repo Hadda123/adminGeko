@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import CustomInput from "../components/CustomInput";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+
 import Dropzone from "react-dropzone";
 import { delImg, uploadImg } from "../features/upload/uploadSlice";
 import { toast } from "react-toastify";
