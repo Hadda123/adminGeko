@@ -36,6 +36,11 @@ const columns = [
 
 const Productlistpendding = () => {
 const[ productState , setProductState] = useState()
+const dispatch = useDispatch();
+useEffect(() => {
+  dispatch(getProducts());
+}, []);
+const productState1 = useSelector((state) => state.product.products);
   useEffect(() => {
     const loadUserDetails = async() => {
         const response = await    getArticles();;
@@ -47,24 +52,28 @@ const[ productState , setProductState] = useState()
   }, []);
 
   const data1 = [];
-  for (let i = 0; i < productState?.length; i++) {
-    data1.push({
-        codart: productState[i].codart ,
-        desart: productState[i].desart,
-        stkfin: productState[i].stkfin,
-   
-        PURNTTC: productState[i].PURNTTC,
 
-      action: (
-        <>
-          <Link to={`/admin/product/${productState[i].codart}/${productState[i].desart}/${productState[i].stkfin}/${productState[i].PURNTTC}`} className=" fs-3 text-danger">
-            <BiEdit />
-          </Link>
-       
-        </>
-      ),
-    });
-  }
+  for (let i = 0; i < productState?.length; i++) {
+    const Bruno = productState1.find((person) => person.codeArt === productState[i].codart)
+if(Bruno == undefined)
+{  data1.push({
+    codart: productState[i].codart ,
+    desart: productState[i].desart,
+    stkfin: productState[i].stkfin,
+  
+    PURNTTC: productState[i].PURNTTC,
+  
+  action: (
+    <>
+      <Link to={`/admin/product/${productState[i].codart}/${productState[i].desart}/${productState[i].stkfin}/${productState[i].PURNTTC}`} className=" fs-3 text-danger">
+        <BiEdit />
+      </Link>
+   
+    </>
+  ),
+  });}
+ }
+  
   console.log(data1);
   return (
     <div>

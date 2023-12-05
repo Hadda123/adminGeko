@@ -30,10 +30,7 @@ const columns = [
     title: "Amount",
     dataIndex: "amount",
   },
-  {
-    title: "Date",
-    dataIndex: "date",
-  },
+
 
   {
     title: "Action",
@@ -48,18 +45,18 @@ const ViewOrder = () => {
   useEffect(() => {
     dispatch(getOrderByUser(userId));
   }, []);
-  const orderState = useSelector((state) => state.auth.orderbyuser.products);
+  const orderState = useSelector((state) => state.auth.orderbyuser.orderItems);
   console.log(orderState);
   const data1 = [];
-  for (let i = 0; i < orderState.length; i++) {
+  for (let i = 0; i < orderState?.length; i++) {
     data1.push({
       key: i + 1,
-      name: orderState[i].product.title,
-      brand: orderState[i].product.brand,
-      count: orderState[i].count,
-      amount: orderState[i].product.price,
-      color: orderState[i].product.color,
-      date: orderState[i].product.createdAt,
+      name: orderState[i]?.product?.title,
+      brand: orderState[i]?.product?.brand,
+      count: orderState[i]?.quantity,
+      amount: orderState[i]?.product?.price,
+      color: orderState[i]?.color?.title,
+
       action: (
         <>
           <Link to="/" className=" fs-3 text-danger">

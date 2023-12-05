@@ -83,6 +83,7 @@ const Addproduct = () => {
   }, [color, img]);
   const formik = useFormik({
     initialValues: {
+      codeArt: getproductId,
       title: getproductdesart,
       description: "",
       price: getproductPURNTTC,
