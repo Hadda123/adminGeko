@@ -33,7 +33,7 @@ const Addproduct = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const getproductId = location.pathname.split("/")[3];
-
+console.log(getproductId)
   const getproductdesart = location.pathname.split("/")[4];
   const getproductstkfin = location.pathname.split("/")[5];
   const getproductPURNTTC = location.pathname.split("/")[6];
