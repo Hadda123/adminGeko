@@ -1,1 +1,0 @@
-export const base_url = "https://api.my-home-plus.com/api/";
